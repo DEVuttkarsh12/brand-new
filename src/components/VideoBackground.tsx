@@ -21,16 +21,11 @@ const VideoBackground = () => {
         return;
       }
 
-      // Fade in (0.5s)
       if (currentTime < 0.5) {
         setOpacity(currentTime / 0.5);
-      } 
-      // Fade out (0.5s before end)
-      else if (currentTime > duration - 0.5) {
+      } else if (currentTime > duration - 0.5) {
         setOpacity((duration - currentTime) / 0.5);
-      } 
-      // Fully visible
-      else {
+      } else {
         setOpacity(1);
       }
 
@@ -57,8 +52,8 @@ const VideoBackground = () => {
   }, []);
 
   return (
-    <div 
-      className="absolute z-0 overflow-hidden left-0 right-0 bottom-0" 
+    <div
+      className="absolute z-0 overflow-hidden left-0 right-0 bottom-0"
       style={{ top: '300px' }}
     >
       <video
@@ -70,12 +65,9 @@ const VideoBackground = () => {
         playsInline
         style={{ opacity, transition: 'opacity 0.1s linear' }}
       />
-      
-      {/* Gradient Overlays */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white pointer-events-none" />
     </div>
   );
 };
 
 export default VideoBackground;
-
